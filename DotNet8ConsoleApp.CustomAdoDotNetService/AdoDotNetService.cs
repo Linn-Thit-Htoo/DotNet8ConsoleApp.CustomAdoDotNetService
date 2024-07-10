@@ -6,7 +6,7 @@ namespace DotNet8ConsoleApp.CustomAdoDotNetService;
 
 public class AdoDotNetService
 {
-    public readonly string _connStr = "Data Source=.;Database=testDb;User ID=sa;Password=sasa@123";
+    public readonly string _connStr = "Data Source=.;Database=testDb;User ID=sa;Password=sasa@123;TrustServerCertificate=True;";
 
     public async Task<List<T>> QueryAsync<T>(
         string query,
