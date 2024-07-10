@@ -1,8 +1,4 @@
-﻿using System.Data;
-using System.Data.SqlClient;
-using Newtonsoft.Json;
-
-namespace DotNet8ConsoleApp.CustomAdoDotNetService;
+﻿namespace DotNet8ConsoleApp.CustomAdoDotNetService;
 
 public class AdoDotNetService
 {

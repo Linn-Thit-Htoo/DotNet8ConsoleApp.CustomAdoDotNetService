@@ -1,6 +1,4 @@
-﻿using System.Data.SqlClient;
-
-namespace DotNet8ConsoleApp.CustomAdoDotNetService;
+﻿namespace DotNet8ConsoleApp.CustomAdoDotNetService;
 
 public class Program
 {
