@@ -15,7 +15,8 @@ public class Program
         try
         {
             AdoDotNetService adoDotNetService = new();
-            string query = @"SELECT BlogId, BlogTitle, BlogAuthor, BlogContent FROM Tbl_Blog
+            string query =
+                @"SELECT BlogId, BlogTitle, BlogAuthor, BlogContent FROM Tbl_Blog
 ORDER BY BlogId DESC";
             List<BlogModel> lst = await adoDotNetService.QueryAsync<BlogModel>(query);
 
@@ -38,14 +39,16 @@ ORDER BY BlogId DESC";
         try
         {
             AdoDotNetService adoDotNetService = new();
-            string query = @"INSERT INTO Tbl_Blog (BlogTitle, BlogAuthor, BlogContent)
+            string query =
+                @"INSERT INTO Tbl_Blog (BlogTitle, BlogAuthor, BlogContent)
 VALUES(@BlogTitle, @BlogAuthor, @BlogContent)";
-            List<SqlParameter> parameters = new()
-        {
-            new("@BlogTitle", blogTitle),
-            new("@BlogAuthor", blogAuthor),
-            new("@BlogContent", blogContent)
-        };
+            List<SqlParameter> parameters =
+                new()
+                {
+                    new("@BlogTitle", blogTitle),
+                    new("@BlogAuthor", blogAuthor),
+                    new("@BlogContent", blogContent)
+                };
             int result = await adoDotNetService.ExecuteAsync(query, parameters.ToArray());
 
             Console.WriteLine(result > 0 ? "Saving Successful." : "Saving Fail.");
@@ -67,7 +70,6 @@ public class BlogModel
 
 public class CustomException : Exception
 {
-    public CustomException(string? message) : base(message)
-    {
-    }
+    public CustomException(string? message)
+        : base(message) { }
 }
