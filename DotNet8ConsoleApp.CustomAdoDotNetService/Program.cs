@@ -15,9 +15,7 @@ public class Program
         try
         {
             AdoDotNetService adoDotNetService = new();
-            string query =
-                @"SELECT BlogId, BlogTitle, BlogAuthor, BlogContent FROM Tbl_Blog
-ORDER BY BlogId DESC";
+            string query = Query.GetAllBlogsQuery;
             List<BlogModel> lst = await adoDotNetService.QueryAsync<BlogModel>(query);
 
             foreach (var item in lst)
@@ -39,9 +37,7 @@ ORDER BY BlogId DESC";
         try
         {
             AdoDotNetService adoDotNetService = new();
-            string query =
-                @"INSERT INTO Tbl_Blog (BlogTitle, BlogAuthor, BlogContent)
-VALUES(@BlogTitle, @BlogAuthor, @BlogContent)";
+            string query = Query.CreateBlogQuery;
             List<SqlParameter> parameters =
                 new()
                 {
