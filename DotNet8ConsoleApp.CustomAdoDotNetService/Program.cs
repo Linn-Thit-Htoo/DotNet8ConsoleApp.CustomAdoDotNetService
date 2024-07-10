@@ -6,6 +6,8 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
+        DotNetEnv.Env.Load(".env");
+
         await Read();
         //await Create("Sample Title", "Sample Author", "Sample Content");
     }
