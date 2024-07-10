@@ -1,13 +1,18 @@
-﻿using Newtonsoft.Json;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
+using Newtonsoft.Json;
 
 namespace DotNet8ConsoleApp.CustomAdoDotNetService;
 
 public class AdoDotNetService
 {
     public readonly string _connStr = "Data Source=.;Database=testDb;User ID=sa;Password=sasa@123";
-    public async Task<List<T>> QueryAsync<T>(string query, SqlParameter[]? parameters = null, SqlTransaction? transaction = null)
+
+    public async Task<List<T>> QueryAsync<T>(
+        string query,
+        SqlParameter[]? parameters = null,
+        SqlTransaction? transaction = null
+    )
     {
         SqlConnection conn = GetConnection();
         await conn.OpenAsync();
@@ -27,7 +32,11 @@ public class AdoDotNetService
         return lst;
     }
 
-    public async Task<DataTable> QueryFirstOrDefaultAsync(string query, SqlParameter[]? parameters = null, SqlTransaction? transaction = null)
+    public async Task<DataTable> QueryFirstOrDefaultAsync(
+        string query,
+        SqlParameter[]? parameters = null,
+        SqlTransaction? transaction = null
+    )
     {
         SqlConnection conn = GetConnection();
         await conn.OpenAsync();
@@ -44,7 +53,11 @@ public class AdoDotNetService
         return dt;
     }
 
-    public async Task<int> ExecuteAsync(string query, SqlParameter[]? parameters = null, SqlTransaction? transaction = null)
+    public async Task<int> ExecuteAsync(
+        string query,
+        SqlParameter[]? parameters = null,
+        SqlTransaction? transaction = null
+    )
     {
         SqlConnection conn = GetConnection();
         await conn.OpenAsync();
