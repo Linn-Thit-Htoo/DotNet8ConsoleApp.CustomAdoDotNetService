@@ -1,5 +1,6 @@
-﻿using DotNet8ConsoleApp.CustomAdoDotNetService;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
+
+namespace DotNet8ConsoleApp.CustomAdoDotNetService;
 
 public class Program
 {
@@ -40,11 +41,11 @@ ORDER BY BlogId DESC";
             string query = @"INSERT INTO Tbl_Blog (BlogTitle, BlogAuthor, BlogContent)
 VALUES(@BlogTitle, @BlogAuthor, @BlogContent)";
             List<SqlParameter> parameters = new()
-            {
-                new("@BlogTitle", blogTitle),
-                new("@BlogAuthor", blogAuthor),
-                new("@BlogContent", blogContent)
-            };
+        {
+            new("@BlogTitle", blogTitle),
+            new("@BlogAuthor", blogAuthor),
+            new("@BlogContent", blogContent)
+        };
             int result = await adoDotNetService.ExecuteAsync(query, parameters.ToArray());
 
             Console.WriteLine(result > 0 ? "Saving Successful." : "Saving Fail.");
